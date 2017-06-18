@@ -1,0 +1,29 @@
+<h1>User test</h1>
+
+<p>List users</p>
+
+<% @users.each do |user| %>
+<h2><%= user.name %></h2>
+<p><%= user.email %></p>
+<p><%= user.website %></p>
+<p><%= user.image %></p>
+<% end %>
+
+<% @sounds.each do |sound| %>
+<h2><%= sound.title %></h2>
+
+<p><%= sound.sound %></p>
+
+<!-- <audio id="<%= sound.title %>" controls> -->
+
+<audio src="<%= sound.sound %>" controls>
+</audio>
+
+
+
+
+<p><%= sound.description %></p>
+  <% sound.tags.each do |t| %>
+    <p class="tags"><%= t.name %></p>
+    <% end %>
+<% end %>
