@@ -1,2 +1,19 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<h2>User Details</h2>
+
+<% if @current_user == @user %>
+ <%= link_to 'Edit profile', edit_user_path(@user) %>
+<% end %>
+
+
+<p>Email: <%= @user.email %> </p>
+
+<p>Name: <%= @user.name %> </p>
+
+<img src="<%= @user.image %>" alt="">
+
+<p>Sounds:</p>
+<% @user.sounds.each do |sound| %>
+<h2><%= sound.title %></h2>
+<p><%= sound.sound %></p>
+<% end %>

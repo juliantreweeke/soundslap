@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618030622) do
+ActiveRecord::Schema.define(version: 20170618071402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "audios", force: :cascade do |t|
+    t.string   "image"
+    t.string   "name"
+    t.string   "audio"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "sounds", force: :cascade do |t|
     t.text     "sound"
@@ -42,8 +54,10 @@ ActiveRecord::Schema.define(version: 20170618030622) do
     t.text     "email"
     t.text     "website"
     t.text     "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
+    t.boolean  "is_admin"
   end
 
 end

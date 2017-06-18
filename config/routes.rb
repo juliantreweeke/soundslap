@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  root to: 'users#index'
+
+
+  root to: "sounds#index"
+
+  get '/login' => 'session#new'         #login form
+  post '/login' => 'session#create'   # check credentials and attempt login
+  delete '/login' => 'session#destroy'  # log out destroy session
+
+  resources :sounds
 
   resources :users
 

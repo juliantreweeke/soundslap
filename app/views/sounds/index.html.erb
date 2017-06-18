@@ -1,0 +1,6 @@
+
+<h3>List of sounds.</h3>
+
+<% @sounds.each do |s| %>
+<p><%= link_to s.title, sound_path(s) %></p>
+<% end %>

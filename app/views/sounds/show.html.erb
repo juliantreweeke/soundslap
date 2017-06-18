@@ -1,0 +1,12 @@
+<h1><%= @sounds.title %></h1>
+
+<audio controls>
+  <source src="<%= @sounds.sound %>" type="audio/mpeg">
+</audio>
+
+<p><%= @sounds.description %></p>
+
+<%= link_to 'Edit', edit_sound_path %>
+
+<%= link_to "delete", @sound, method: :delete,
+                                  data: { confirm: "You sure?" } %>
