@@ -5,6 +5,19 @@
 </audio>
 
 <p><%= @sounds.description %></p>
+<p><%= @sounds.user_id %></p>
+
+<!-- display tags -->
+<p>Tags:
+  <% @sounds.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+
+
+
+
+</p>
+
 
 <%= link_to 'Edit', edit_sound_path %>
 

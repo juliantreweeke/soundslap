@@ -10,7 +10,7 @@
 
 User.destroy_all
 
-u1 = User.create name: "Dysphemic", email: "julian@dysphemic.com", website: "http://www.dysphemic.com" , image: "http://dysphemic.com/wp-content/uploads/2014/11/Dysphemic_Logo2-1.jpg", is_admin: true, password_digest: "chicken",
+u1 = User.create name: "Dysphemic", email: "julian@dysphemic.com", website: "http://www.dysphemic.com" , image: "http://dysphemic.com/wp-content/uploads/2014/11/Dysphemic_Logo2-1.jpg", is_admin: true, password_digest: "chicken"
 
 Sound.destroy_all
 

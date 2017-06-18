@@ -13,7 +13,9 @@
 
     <nav>
 
+    <%= link_to 'Sounds', sounds_path %>
     <%= link_to 'Upload', new_sound_path %>
+
 
     <% unless @current_user.present? %>
       <%= link_to 'Login', login_path %>
