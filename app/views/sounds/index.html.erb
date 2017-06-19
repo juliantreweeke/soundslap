@@ -1,34 +1,27 @@
 
 <h3>List of sounds.</h3>
 
-<% @sounds.each do |s| %>
+<% @sounds.each_with_index do |s, index| %>
 <p><%= link_to s.title, sound_path(s) %></p>
-<div class="sound"></div>
+<div class="<%= index %>"></div>
 
 <button class="btn">
   Play
 </button>
 
+
+
 <script>
 
-var wavesurfer = Object.create(WaveSurfer);
-wavesurfer.init({
-      container: document.querySelector('.sound'),
-      waveColor: 'red',
-      progressColor: 'blue'
-  });
 
-$(document).ready(function(){
 
-  var play = "<%= s.sound %>";
-  wavesurfer.load(play);
 
-  $(".btn").click(function() {
-   wavesurfer.playPause()
-  });
 
-});
+
 
 </script>
+
+
+
 
 <% end %>

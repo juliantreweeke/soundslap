@@ -14,12 +14,16 @@ u1 = User.create name: "Dysphemic", email: "julian@dysphemic.com", website: "htt
 
 Sound.destroy_all
 
-s1 = Sound.create sound: "http://sep800.mine.nu/files/sounds/slap.wav", title: "Test sound", description: "Slap sound effect",
+s1 = Sound.create sound: "http://res.cloudinary.com/dce33w3mj/video/upload/v1497830852/Space_Gun_14_hptigq.wav", title: "Test sound", description: "Slap sound effect",
 image: "http://res.cloudinary.com/demo/video/upload/h_200,w_500,fl_waveform,co_black,b_white/bumblebee.png"
 
-s2 = Sound.create sound: "http://www.garrens.com/xanacreations/czero/sound/misc/slap.wav", title: "Slap sound", description: "The sound of your face getting schlapped."
+s2 = Sound.create sound: "http://res.cloudinary.com/dce33w3mj/video/upload/v1497830852/Space_Gun_14_hptigq.wav", title: "Slap sound", description: "The sound of your face getting schlapped."
 
-u1.sounds << s1 << s2
+s3 = Sound.create sound: "http://res.cloudinary.com/dce33w3mj/video/upload/v1497830852/Space_Gun_14_hptigq.wav", title: "Slap sound", description: "The sound of your face getting schlapped."
+
+s4 = Sound.create sound: "http://res.cloudinary.com/dce33w3mj/video/upload/v1497830852/Space_Gun_14_hptigq.wav", title: "Slap sound", description: "The sound of your face getting schlapped."
+
+u1.sounds << s1 << s2 << s3 << s4
 
 Tag.destroy_all
 
