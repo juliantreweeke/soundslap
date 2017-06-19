@@ -3,4 +3,32 @@
 
 <% @sounds.each do |s| %>
 <p><%= link_to s.title, sound_path(s) %></p>
+<div class="sound"></div>
+
+<button class="btn">
+  Play
+</button>
+
+<script>
+
+var wavesurfer = Object.create(WaveSurfer);
+wavesurfer.init({
+      container: document.querySelector('.sound'),
+      waveColor: 'red',
+      progressColor: 'blue'
+  });
+
+$(document).ready(function(){
+
+  var play = "<%= s.sound %>";
+  wavesurfer.load(play);
+
+  $(".btn").click(function() {
+   wavesurfer.playPause()
+  });
+
+});
+
+</script>
+
 <% end %>

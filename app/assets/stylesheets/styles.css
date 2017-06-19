@@ -1,0 +1,61 @@
+body {
+
+    background-color: black;
+    color: white;
+    text-align: center;
+
+}
+
+a {
+  text-decoration:none;
+  color:white;
+  transition: all 0.5s ease-in-out;
+}
+
+a:hover {
+  color:red;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    z-index: 0;
+    flex: 0 0 64px;
+    display: flex;
+    justify-content: center;
+}
+
+app {
+    flex: 1 1 100vh;
+    display: flex;
+}
+
+nav {
+    flex: 0 0 256px;
+    order: 0;
+}
+
+article {
+    flex: 1 1 100px;
+    order: 1;
+}
+
+aside {
+    flex: 0 0 256px;
+    order: 2;
+}
+
+.sound {
+  transform: scale(0.9);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.sound:hover {
+  transform: scale(1);
+}

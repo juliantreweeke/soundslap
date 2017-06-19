@@ -6,11 +6,6 @@
 <p><%= link_to user.name, users_show_path(user) %></p>
 <% end %>
 
-<p>Sounds:</p>
-<% @sounds.each do |sound| %>
-<h2><%= sound.title %></h2>
 
-<p><%= sound.sound %></p>
-<% end %>
 
 <!-- <audio id="<%= sound.title %>" controls> -->

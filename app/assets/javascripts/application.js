@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require wavesurfer
+//= require wavesurfer-plugins
 //= require_tree .

@@ -1,11 +1,40 @@
 <h1><%= @sounds.title %></h1>
 
-<audio controls>
-  <source src="<%= @sounds.sound %>" type="audio/mpeg">
-</audio>
+<div class="sound"></div>
+
+<div style="text-align: center">
+  <button class="btn">
+    Play
+  </button>
+
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p><%= @sounds.description %></p>
-<p><%= @sounds.user_id %></p>
+
+
+<p>Uploaded by: <%= link_to @sounds.user.name, user_path(@sounds.user) %>
+
 
 <!-- display tags -->
 <p>Tags:
@@ -23,3 +52,23 @@
 
 <%= link_to "delete", @sound, method: :delete,
                                   data: { confirm: "You sure?" } %>
+
+
+<script>
+
+$(document).ready(function(){
+
+  // var sound = <% @playsound %>;
+  var play = "<%= @sounds.sound %>";
+  wavesurfer.load(play);
+
+  $(".sound").click(function() {
+   wavesurfer.playPause()
+  });
+  $(".btn").click(function() {
+   wavesurfer.playPause()
+  });
+
+});
+
+</script>

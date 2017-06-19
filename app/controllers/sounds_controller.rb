@@ -1,12 +1,17 @@
 class SoundsController < ApplicationController
+
+  before_action :check_if_logged_in, except: [:index, :show]
+
   def new
     @sound = Sound.new
   end
 
   def create
 
-    @sound = Sound.create sound_params
-    redirect_to sound_path(@sound.id)
+    sound = Sound.new sound_params
+    sound.user = @current_user   # associate sound with logged in user
+    sound.save
+    redirect_to sound_path(sound.id)
   end
 
   def edit
@@ -21,6 +26,7 @@ class SoundsController < ApplicationController
 
   def show
     @sounds = Sound.find params["id"]
+
   end
 
   def index
@@ -33,7 +39,6 @@ class SoundsController < ApplicationController
     Sound.find(params[:id]).destroy
     flash[:success] = "Sound deleted"
     redirect_to sounds_path
-
 
   end
 
