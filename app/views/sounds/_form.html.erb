@@ -2,7 +2,7 @@
 <%= form_for @sound, html: {multipart: true} do |f| %>
 
   <%= f.label :sound %>
-  <%= f.cl_image_upload :sound %>
+  <%= f.cl_upload :sound %>
   <br><br>
 
   <%= f.label :title %>

@@ -12,9 +12,16 @@ class SoundsController < ApplicationController
 
     if params[:file].present?
       # perform upload to cloudinary
-      req = Cloudinary::Uploader.upload params[:file]
+      req = Cloudinary::Uploader.upload(params[:file],:resource_type => :video )
       sound.image = req['public_id']
     end
+
+
+
+
+
+
+
 
     sound.user = @current_user   # associate sound with logged in user
 

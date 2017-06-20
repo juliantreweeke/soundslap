@@ -15,7 +15,13 @@
 
 
 <!-- this is the cloudinary line in the show page -->
-<%= cl_image_tag @sounds.image %>
+
+
+
+
+
+
+
 
 
 
@@ -50,10 +56,14 @@
 
 $(document).ready(function(){
 
-  // var sound = <% @playsound %>;
 
-  var play = "<%= @sounds.sound %>";
-  wavesurfer.load(play);
+  // old code before cloudinary
+  var play = "<%= @sounds.image %>";
+
+  // new code that works with cloudinary
+  var cloudsound ="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/<%= @sounds.image %>.wav"
+
+  wavesurfer.load(cloudsound);
 
   $(".sound").click(function() {
    wavesurfer.playPause()

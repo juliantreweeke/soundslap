@@ -14,14 +14,13 @@ u1 = User.create name: "Dysphemic", email: "julian@dysphemic.com", website: "htt
 
 Sound.destroy_all
 
-s1 = Sound.create sound: "http://res.cloudinary.com/dce33w3mj/video/upload/v1497830852/Space_Gun_14_hptigq.wav", title: "Test sound", description: "Slap sound effect",
-image: "http://res.cloudinary.com/demo/video/upload/h_200,w_500,fl_waveform,co_black,b_white/bumblebee.png", plays: 20
+s1 = Sound.create sound: "slap1_zvfjzc", title: "The first sound ever uploaded. Schlap!", description: "Slap sound effect", plays: 20
 
-s2 = Sound.create sound: "http://res.cloudinary.com/dce33w3mj/video/upload/v1497830852/Space_Gun_14_hptigq.wav", title: "Slap sound", description: "The sound of your face getting schlapped.", plays:0
+s2 = Sound.create sound: "slap2_ywxs2a", title: "Crappy Slap sound", description: "The sound of your face getting schlapped.", plays:0
 
-s3 = Sound.create sound: "http://res.cloudinary.com/dce33w3mj/video/upload/v1497830852/Space_Gun_14_hptigq.wav", title: "Slap sound", description: "The sound of your face getting schlapped.", plays:0
+s3 = Sound.create sound: "slap3_irsdu8", title: "Misc Slap ", description: "Yet again another slap sound.", plays:0
 
-s4 = Sound.create sound: "http://res.cloudinary.com/dce33w3mj/video/upload/v1497830852/Space_Gun_14_hptigq.wav", title: "Slap sound", description: "The sound of your face getting schlapped.", plays:0
+s4 = Sound.create sound: "808bass", title: "808", description: "Dirty 808 sample", plays:0
 
 u1.sounds << s1 << s2 << s3 << s4
 
@@ -30,7 +29,11 @@ Tag.destroy_all
 t1 = Tag.create name: "snare"
 t2 = Tag.create name: "dubstep"
 t3 = Tag.create name: "sound effect"
+t4 = Tag.create name: "slap"
+t5 = Tag.create name: "bass"
 
 
-s1.tags << t1 << t2
-s2.tags << t3
+s1.tags << t4 << t3
+s2.tags << t4
+s3.tags << t4
+s4.tags << t5
