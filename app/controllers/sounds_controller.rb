@@ -9,9 +9,18 @@ class SoundsController < ApplicationController
   def create
 
     sound = Sound.new sound_params
+
+    if params[:file].present?
+      # perform upload to cloudinary
+      req = Cloudinary::Uploader.upload params[:file]
+      sound.image = req['public_id']
+    end
+
     sound.user = @current_user   # associate sound with logged in user
+
     sound.save
     redirect_to sound_path(sound.id)
+
   end
 
   def edit
@@ -32,7 +41,20 @@ class SoundsController < ApplicationController
   def index
       @sounds = Sound.all
 
+
   end
+
+  def search
+  @search =  params[:q]
+  @result = Sound.joins(:tags).where(tags: {name: params[:q]})
+
+
+  @sounds = Sound.all
+  @tags = Tag.all
+
+  end
+
+
 
   def destroy
 

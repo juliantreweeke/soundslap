@@ -39,6 +39,8 @@ gem 'rails_12factor'
 
 gem 'wavesurfer-rails'
 
+gem 'cloudinary'
+
 
 
 group :development, :test do

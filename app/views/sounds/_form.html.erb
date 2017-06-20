@@ -1,8 +1,8 @@
 
-<%= form_for @sound do |f| %>
+<%= form_for @sound, html: {multipart: true} do |f| %>
 
   <%= f.label :sound %>
-  <%= f.text_field :sound %>
+  <%= f.cl_image_upload :sound %>
   <br><br>
 
   <%= f.label :title %>

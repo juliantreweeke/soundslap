@@ -2,22 +2,30 @@
 <h3>List of sounds.</h3>
 
 <% @sounds.each_with_index do |s, index| %>
-<p><%= link_to s.title, sound_path(s) %></p>
-<div class="<%= index %>"></div>
+<h3><%= link_to s.title, sound_path(s) %>
+<!-- <button class="speaker" onclick="<%= s.sound%>.play()">speaker</button></h3> -->
 
-<button class="btn">
-  Play
-</button>
+<audio id="<%= s.id%>"> <source src="<%= s.sound%>"> </audio>
+<img src="assets/speaker.png" class="speaker" onclick="document.getElementById(<%= s.id%>).play()"></h3>
+
+
+
+
+
+
+
 
 
 
 <script>
 
+var play = "<%= s.sound %>";
+wavesurfer.load(play);
+wavesurfer.load("<%= s.sound %>");
 
-
-
-
-
+$(".btn").click(function() {
+ wavesurfer.playPause()
+});
 
 </script>
 

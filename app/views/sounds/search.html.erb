@@ -1,0 +1,21 @@
+
+
+<p>You searched for: <%= @search %></p>
+<p><%= @result.length %> results.
+
+
+<% if @result.length == 0 %>
+  <p>No matches.</p>
+<% end %>
+
+<% @result.each do |r| %>
+<h3><%= link_to r.title, sound_path(r) %>
+  <audio id="<%= r.id%>"> <source src="<%= r.sound%>"> </audio>
+  <img src="assets/speaker.png" class="speaker" onclick="document.getElementById(<%= r.id%>).play()"></h3>
+
+
+
+
+
+<br>
+<% end %>

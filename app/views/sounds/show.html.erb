@@ -3,9 +3,10 @@
 <div class="sound"></div>
 
 <div style="text-align: center">
-  <button class="btn">
+  <!-- <button class="btn">
     Play
-  </button>
+  </button> -->
+  <%= link_to 'Download', @sounds.sound,:class=>"download"  %>
 
   </p>
 </div>
@@ -13,18 +14,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- this is the cloudinary line in the show page -->
+<%= cl_image_tag @sounds.image %>
 
 
 
@@ -42,6 +33,7 @@
     <%= tag.name %>
   <% end %>
 
+<br><p>Plays: <%= @sounds.plays %></p>
 
 
 
@@ -49,8 +41,8 @@
 
 
 <%= link_to 'Edit', edit_sound_path %>
-
-<%= link_to "delete", @sound, method: :delete,
+<br><br>
+<%= link_to "Delete", @sound, method: :delete,
                                   data: { confirm: "You sure?" } %>
 
 
@@ -59,6 +51,7 @@
 $(document).ready(function(){
 
   // var sound = <% @playsound %>;
+
   var play = "<%= @sounds.sound %>";
   wavesurfer.load(play);
 

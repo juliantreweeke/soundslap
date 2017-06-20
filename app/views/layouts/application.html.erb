@@ -4,50 +4,127 @@
 
     <title>Soundslap</title>
     <%= csrf_meta_tags %>
+    
+    <%= cloudinary_js_config %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
 
   </head>
 
   <body>
 
-    <main>
 
 
-      <header>
 
-        <h1>Sound slap</h1>
+    <header><h1 class="logo">Sound Slap</h1>
 
-      </header>
+      <img class='hand' src="/assets/slap.ico" alt="">
 
-      <app>
+      <div class="search_form">
+      <%= form_tag("/search", method: "get") do %>
+        <%= label_tag(:q, "") %>
+        <%= text_field_tag(:q,:attr, placeholder: "Search", :class => 'searchfield') %>
+        <%= image_submit_tag("/assets/mag.png", :class => 'mag')%>
 
-      <nav>
-      <h1>Menu</h1>
-      <br>
-      <%= link_to 'Sounds', sounds_path %>
-      <%= link_to 'Upload', new_sound_path %>
+      <% end %>
+      </div>
 
-          <% unless @current_user.present? %>
-          <%= link_to 'Login', login_path %>
-          <%= link_to 'Signup', new_user_path %>
 
-          <% else %>
-          <p>Hello, <%= link_to @current_user.name, user_path(@current_user) %>
-          <%= link_to 'Logout', login_path, method: :delete %>
-          </p>
-          <% end %>
 
-      </nav>
 
-          <article>
-          <%= yield %>
-          </article>
 
-          <aside><br>Search</aside>
-      </app>
-</main>
+
+
+
+
+      <% unless @current_user.present? %>
+      <div class="login">
+      <%= link_to 'Login', login_path %> |
+      <%= link_to 'Signup', new_user_path %>
+      </div>
+      <% else %>
+      <p class='login'>Hello, <%= link_to @current_user.name, user_path(@current_user) %>
+      - <%= link_to 'Logout', login_path, method: :delete %>
+      </p>
+      <% end %>
+
+
+        <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+        <%= link_to 'Sounds', sounds_path %></a>
+        <%= link_to 'Upload', new_sound_path %></a>
+        <a href="#">Link 3</a>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </header>
+
+        <div id='main'>
+
+          <article><%= yield %></article>
+
+
+          <nav>
+
+
+          </nav>
+
+
+          <aside></aside>
+
+
+        </div>
+
+
+        <footer>About | Terms of Use</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

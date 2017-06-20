@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'   # check credentials and attempt login
   delete '/login' => 'session#destroy'  # log out destroy session
 
+  get '/search' => 'sounds#search'
+
   resources :sounds
 
   resources :users

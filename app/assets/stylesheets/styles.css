@@ -1,54 +1,265 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
 body {
 
-    background-color: black;
-    color: white;
+
+    color: black;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px auto;
 
 }
 
+
+
+#main {
+        min-height: 700px;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-flow: row;
+    }
+
+    #main > article {
+
+
+
+        background: #D9D9D9;
+        flex: 3 1 80%;
+        order: 2;
+    }
+
+    #main > nav {
+
+
+
+        background: #D9D9D9;
+        flex: 1 6 10%;
+        order: 1;
+    }
+
+    #main > aside {
+
+
+
+        background: #D9D9D9;
+        flex: 1 6 10%;
+        order: 3;
+    }s
+
+    header {
+        max-height: 70px;
+        display: block;
+        height: 10%;
+        background: white;
+    }
+
+    footer {
+
+        display: block;
+
+        min-height: 50px;
+
+        background: white;
+    }
+
+
+
+
+
+.menu {
+  position: absolute;
+  left:80px;
+  top:25px;
+  font-weight: 400;
+
+}
+
+.login {
+  font-size: 15px;
+  position: relative;
+
+  top:-60px;
+
+}
+
+.hand {
+  width: 32px;
+  height:32px;
+  position: relative;
+  top:-55px;
+  left:120px;
+  transform: rotate(40deg);
+}
+
+.mag {
+  width: 32px;
+  height:32px;
+  position: absolute;
+  right:-40px;
+  top:3px;
+}
+
+.search_form {
+  position: absolute;
+  right:80px;
+  top:50px;
+}
+
+.searchfield {
+
+  width: 150px;
+  height:30px;
+  font-size: 16px;
+  font-weight: 800px;
+  border-radius: 10px;
+}
+
+
+
+
+.mag:hover, .hand:hover, .menu:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.logo {
+  position: relative;
+
+
+}
+
+
+
+
+
+
+
+.dropbtn {
+    background-color: white;
+    color: Black;
+    padding: 16px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left:80px;
+    top:30px;
+    font-weight: 400;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left:80px;
+    top:70px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #4484CE;
+}
+
+.speaker {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top:6px;
+  transition:  all 0.1s ease-in-out;
+}
+
+.speaker:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 a {
   text-decoration:none;
-  color:white;
+  color:black;
   transition: all 0.5s ease-in-out;
 }
 
 a:hover {
-  color:red;
+  color:#4484CE;
 }
 
 
-main {
+/*main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+}*/
 
-header {
-    z-index: 0;
-    flex: 0 0 64px;
-    display: flex;
-    justify-content: center;
-}
 
-app {
-    flex: 1 1 100vh;
-    display: flex;
-}
 
-nav {
-    flex: 0 0 256px;
-    order: 0;
-}
 
-article {
-    flex: 1 1 100px;
-    order: 1;
-}
 
-aside {
-    flex: 0 0 256px;
-    order: 2;
-}
+
+
+
+
+
+
+
+
 
 .sound {
   transform: scale(0.9);
@@ -58,4 +269,13 @@ aside {
 
 .sound:hover {
   transform: scale(1);
+}
+
+h1 {
+
+
+}
+
+.hidden {
+  display: none;
 }
