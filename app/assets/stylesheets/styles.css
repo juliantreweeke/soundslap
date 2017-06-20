@@ -15,7 +15,7 @@ body {
 
 
 #main {
-        min-height: 700px;
+        min-height: 500px;
         margin: 0;
         padding: 0;
         display: flex;
@@ -29,6 +29,7 @@ body {
         background: #D9D9D9;
         flex: 3 1 80%;
         order: 2;
+
     }
 
     #main > nav {
@@ -195,6 +196,13 @@ body {
   transform: scale(1.5);
   cursor: pointer;
 
+}
+
+.soundlist {
+  /*text-align: left;*/
+  position: inline-block;
+  justify-content: center;
+  left:450px;
 
 }
 

@@ -3,10 +3,14 @@
 <div class="sound"></div>
 
 <div style="text-align: center">
-  <!-- <button class="btn">
+  <button class="btn">
     Play
-  </button> -->
+  </button>
+
+  <!-- old one -->
+
   <%= link_to 'Download', @sounds.sound,:class=>"download"  %>
+
 
   </p>
 </div>
@@ -62,6 +66,7 @@ $(document).ready(function(){
 
   // new code that works with cloudinary
   var cloudsound ="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/<%= @sounds.image %>.wav"
+  // var cloudsound ="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/<%= @sounds.image %>.wav"
 
   wavesurfer.load(cloudsound);
 

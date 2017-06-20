@@ -14,13 +14,13 @@ u1 = User.create name: "Dysphemic", email: "julian@dysphemic.com", website: "htt
 
 Sound.destroy_all
 
-s1 = Sound.create sound: "slap1_zvfjzc", title: "The first sound ever uploaded. Schlap!", description: "Slap sound effect", plays: 20
+s1 = Sound.create sound: "slap1_zvfjzc", title: "The first sound ever uploaded. Schlap!", description: "Slap sound effect",image: "slap1_zvfjzc", plays: 20
 
-s2 = Sound.create sound: "slap2_ywxs2a", title: "Crappy Slap sound", description: "The sound of your face getting schlapped.", plays:0
+s2 = Sound.create sound: "slap2_ywxs2a", title: "Crappy Slap sound", description: "The sound of your face getting schlapped.",image: "slap2_ywxs2a", plays:0
 
-s3 = Sound.create sound: "slap3_irsdu8", title: "Misc Slap ", description: "Yet again another slap sound.", plays:0
+s3 = Sound.create sound: "slap3_irsdu8", title: "Misc Slap ", description: "Yet again another slap sound.",image: "slap3_irsdu8", plays:0
 
-s4 = Sound.create sound: "808bass", title: "808", description: "Dirty 808 sample", plays:0
+s4 = Sound.create sound: "808bass", title: "808", description: "Dirty 808 sample",image: "808bass", plays:0
 
 u1.sounds << s1 << s2 << s3 << s4
 

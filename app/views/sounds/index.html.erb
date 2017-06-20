@@ -1,11 +1,16 @@
 
+<div class="soundlist">
 <h3>List of sounds.</h3>
 
 <% @sounds.each_with_index do |s, index| %>
 <h3><%= link_to s.title, sound_path(s) %>
 <!-- <button class="speaker" onclick="<%= s.sound%>.play()">speaker</button></h3> -->
 
-<audio id="<%= s.id%>"> <source src="<%= s.sound%>"> </audio>
+<audio id="<%= s.id%>">
+<!-- <source src="<%= s.image%>"> -->
+<source src="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/<%=s.image%>.wav">
+
+</audio>
 <img src="assets/speaker.png" class="speaker" onclick="document.getElementById(<%= s.id%>).play()"></h3>
 
 
@@ -33,3 +38,4 @@ $(".btn").click(function() {
 
 
 <% end %>
+</div>
