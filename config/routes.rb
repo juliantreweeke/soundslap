@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   get '/search' => 'sounds#search'
 
+  get	'/users/about'=> 'users#about'
+
+
   resources :sounds
 
   resources :users

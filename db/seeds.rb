@@ -33,6 +33,7 @@ t4 = Tag.create name: "slap"
 t5 = Tag.create name: "bass"
 
 
+
 s1.tags << t4 << t3
 s2.tags << t4
 s3.tags << t4

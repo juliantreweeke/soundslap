@@ -14,6 +14,20 @@ class SoundsController < ApplicationController
       # perform upload to cloudinary
       req = Cloudinary::Uploader.upload(params[:file],:resource_type => :video )
       sound.image = req['public_id']
+      
+    end
+
+    sound.user = @current_user   # associate sound with logged in user
+
+    sound.save
+
+    if    sound.save
+          # save was successful, now add cuisine associations
+          tags = Tag.where id: params[:sound][:tag_ids]
+          sound.tags << tags
+          redirect_to sound_path(sound.id)
+        else
+          # render :new
     end
 
 
@@ -23,15 +37,16 @@ class SoundsController < ApplicationController
 
 
 
-    sound.user = @current_user   # associate sound with logged in user
 
-    sound.save
-    redirect_to sound_path(sound.id)
+
+    # redirect_to sound_path(sound.id)
 
   end
 
   def edit
     @sound = Sound.find params["id"]
+    redirect_to sound_path unless @current_user.id == @sound.user_id || @current_user.is_admin
+
   end
 
   def update
@@ -63,8 +78,13 @@ class SoundsController < ApplicationController
 
 
 
-  def destroy
 
+
+
+
+
+  def destroy
+    redirect_to sound_path unless @current_user.id == @sound.user_id || @current_user.is_admin
     Sound.find(params[:id]).destroy
     flash[:success] = "Sound deleted"
     redirect_to sounds_path
