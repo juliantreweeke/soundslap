@@ -1,0 +1,111 @@
+
+
+
+<button id="record">Record mofo!</button>
+<button id="stop">Stop!</button>
+<button id="save">Save!</button>
+
+
+<script src="https://cdn.webrtc-experiment.com/MediaStreamRecorder.js"> </script>
+
+
+<script>
+var mediaConstraints = {
+    audio: true
+};
+
+var mediaRecorder
+
+
+
+
+
+
+navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+
+function onMediaSuccess(stream) {
+     mediaRecorder = new MediaStreamRecorder(stream);
+    mediaRecorder.mimeType = 'audio/wav'; // check this line for audio/wav
+    mediaRecorder.ondataavailable = function (blob) {
+        // POST/PUT "Blob" using FormData/XHR2
+        var blobURL = URL.createObjectURL(blob);
+        document.write('<a href="' + blobURL + '">' + blobURL + '</a>');
+    };
+    mediaRecorder.start(3000);
+}
+
+function onMediaError(e) {
+    console.error('media error', e);
+}
+
+
+
+
+
+
+
+
+
+
+$('#record').click(function() {
+onMediaSuccess(stream)
+// mediaRecorder.start(3000);
+alert('clicked')
+
+});
+
+$('#record').click(function() {
+
+mediaRecorder.stop();
+alert('clicked')
+
+
+});
+
+$('#save').click(function() {
+
+mediaRecorder.save();
+alert('clicked')
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- just to stop wavesurfer error in console -->
+<div class="sound"></div>

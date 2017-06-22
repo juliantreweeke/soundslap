@@ -78,7 +78,7 @@ class SoundsController < ApplicationController
   def search
     # get what the user searched for
   @search =  params[:q]
-  query =  params[:q]
+
 
   # get what the user searched for and split each word into an array
   @searchsplit = params[:q].split(' ')
@@ -109,10 +109,9 @@ class SoundsController < ApplicationController
   # get each of the search terms in an arry
 
 
-
+query =  params[:q]
 query_length = query.split.length
-@multisearch = Sound.where([(['word LIKE ?'] * query_length).join(' OR ')] + (query.split.map {|query| "%#{query}%"}))
-
+@multisearch = Sound.where([(['title LIKE ?'] * query_length).join(' OR ')] + (query.split.map {|query| "%#{query}%"}))
 
 
 
