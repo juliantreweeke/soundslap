@@ -32,7 +32,11 @@ t3 = Tag.create name: "sound effect"
 t4 = Tag.create name: "slap"
 t5 = Tag.create name: "bass"
 
+Comment.destroy_all
+#
+c1 = Comment.create name: "Dysphemic", body: "This sound is awesome yo"
 
+# s1.comments << c1
 
 s1.tags << t4 << t3
 s2.tags << t4

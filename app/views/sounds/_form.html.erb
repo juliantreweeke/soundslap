@@ -1,9 +1,7 @@
 
 <%= form_for @sound, html: {multipart: true} do |f| %>
 
-  <%= f.label :sound %>
-  <%= f.cl_upload :sound %>
-  <br><br>
+
 
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -13,18 +11,15 @@
   <%= f.text_field :description %>
   <br><br>
 
-  <%= f.label :tag %>
-    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name, {include_blank: false}, {:multiple => true})%>
-
-
-
-
+  <%= label_tag :tag %>
+  <%= text_field_tag :tag %>
   <br><br>
 
+  <div class="uploadbutton">
+  <%= f.cl_upload :sound %>
+  </div>
   <br>
 
-  <br>
-
-  <%= f.submit %>
+  <%= f.submit 'Create Sound', :class => 'submitbutton' %>
 
 <% end %>

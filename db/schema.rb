@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620220541) do
+ActiveRecord::Schema.define(version: 20170621061411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "body"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments_sounds", force: :cascade do |t|
+    t.integer "comment_id"
+    t.integer "sound_id"
+  end
 
   create_table "sounds", force: :cascade do |t|
     t.text     "sound"
@@ -24,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170620220541) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "plays"
+    t.integer  "sound_id"
   end
 
   create_table "sounds_tags", force: :cascade do |t|

@@ -10,6 +10,21 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+
+
+
+
+
+
   </head>
 
   <body>
@@ -17,10 +32,9 @@
 
 
 
-
     <header><h1 class="logo">Sound Slap</h1>
 
-      <a href="/sounds"><img class='hand' src="/assets/slap.ico" alt="" onclick="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/slap2_ywxs2a.wav.play()"></a>
+      <img class='hand' src="/assets/slap.ico" alt="">
 
       <div class="search_form">
       <%= form_tag("/search", method: "get") do %>
@@ -56,7 +70,7 @@
         <div class="dropdown-content">
         <%= link_to 'Sounds', sounds_path %></a>
         <%= link_to 'Upload', new_sound_path %></a>
-        <%= link_to 'Record', record_path %></a>
+        <a href="#">Link 3</a>
         </div>
       </div>
 
@@ -111,7 +125,7 @@
         </div>
 
 
-        <footer><br> <%= link_to 'about', users_about_path %></a>| Terms of Use</footer>
+        <footer><br> About | Terms of Use</footer>
 
 
 

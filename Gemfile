@@ -41,6 +41,8 @@ gem 'wavesurfer-rails'
 
 gem 'cloudinary'
 
+gem 'audio'
+
 
 
 group :development, :test do

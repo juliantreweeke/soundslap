@@ -12,7 +12,7 @@
 
 <img src="<%= @user.image %>" alt="">
 
-<p>Sounds:</p>
+<h3>Uploaded Sounds:</h3>
 <% @user.sounds.each do |s| %>
-<h3><%= link_to s.title, sound_path(s) %></h3>
+<h4><%= link_to s.title, sound_path(s) %></h4>
 <% end %>

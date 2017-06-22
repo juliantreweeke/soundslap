@@ -10,7 +10,7 @@
   <!-- old one -->
 
 
-  <a href="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/<%= @sounds.image %>.wav" download>Download</a>
+  <button class="buttonDownload"><a href="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/<%= @sounds.image %>.wav" download>Download</a></button>
 
 
 
@@ -59,8 +59,7 @@
 
 <% if @current_user == @user || @current_user.is_admin %>
 
-<%= link_to 'Edit', edit_sound_path %>
-<br><br>
+<%= link_to 'Edit', edit_sound_path %> |
 <%= link_to "Delete", @sound, method: :delete,
                                   data: { confirm: "You sure?" } %>
 <% end %>
@@ -96,6 +95,7 @@ $(document).ready(function(){
   });
   $(".btn").click(function() {
    wavesurfer.playPause()
+
 
   });
 
