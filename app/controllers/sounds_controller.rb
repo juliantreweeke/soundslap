@@ -12,6 +12,9 @@ class SoundsController < ApplicationController
 
     if params[:file].present?
       tag = Tag.find_or_create_by name: params[:tag]
+      # tag = Tag.find_or_create_by name: params[:tag]
+
+
       # tag = Tag.new name: params[:tag]
 
 

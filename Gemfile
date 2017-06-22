@@ -34,14 +34,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem "bcrypt"
-
 gem 'rails_12factor'
-
 gem 'wavesurfer-rails'
-
 gem 'cloudinary'
 
-gem 'audio'
+# gem 'audio'
 
 
 
