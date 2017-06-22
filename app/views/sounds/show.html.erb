@@ -7,35 +7,13 @@
     Play
   </button>
 
-  <!-- old one -->
+
 
 
   <button class="buttonDownload"><a href="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/<%= @sounds.image %>.wav" download>Download</a></button>
 
-
-
-
-  <!-- link_to("Download", cl_private_download_url(<%= @sounds.image %>, :jpg, :attachment => true))  -->
-
-
   </p>
 </div>
-
-
-
-
-<!-- this is the cloudinary line in the show page -->
-
-
-
-
-
-
-
-
-
-
-
 
 <p><%= @sounds.description %></p>
 
@@ -51,7 +29,7 @@
 
   <% end %>
 
-<br><p>Plays: <%= @sounds.plays %></p>
+
 
 
 
@@ -76,15 +54,6 @@ $(document).ready(function(){
   // new code that works with cloudinary
   var cloudsound ="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/<%= @sounds.image %>.wav"
 
-  // cloudinary only spits out slap1_zvfjzc
-
-
-
-
-
-
-
-
   // var cloudsound ="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/<%= @sounds.image %>.wav"
 
   wavesurfer.load(cloudsound);
@@ -98,6 +67,9 @@ $(document).ready(function(){
 
 
   });
+
+
+
 
 });
 

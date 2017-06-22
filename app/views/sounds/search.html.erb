@@ -4,9 +4,6 @@
 <p><%= @result.length + @multisearch.length %> results.
 
 <!-- if no results say no matches -->
-<% if @result.length && @multisearch.length == 0 %>
-  <p>No matches.</p>
-<% end %>
 
 <!-- search for tags -->
 
@@ -15,6 +12,15 @@
   <audio id="<%= r.id%>"> <source src="<%= r.sound%>"> </audio>
   <img src="assets/speaker.png" class="speaker" onclick="document.getElementById(<%= r.id%>).play()"></h3>
 <br>
+
+
+
+
+
+
+
+
+
 <% end %>
 
 <!-- uniq -->

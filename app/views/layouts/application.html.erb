@@ -20,6 +20,8 @@
 
     <header><h1 class="logo">Sound Slap</h1>
 
+      <!-- search form  -->
+
       <a href="/sounds"><img class='hand' src="/assets/slap.ico" alt="" onclick="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/slap2_ywxs2a.wav.play()"></a>
 
       <div class="search_form">
@@ -31,13 +33,7 @@
       <% end %>
       </div>
 
-
-
-
-
-
-
-
+      <!-- login and sign up -->
 
       <% unless @current_user.present? %>
       <div class="login">
@@ -50,7 +46,7 @@
       </p>
       <% end %>
 
-
+        <!-- menu -->
         <div class="dropdown">
         <button class="dropbtn">Menu</button>
         <div class="dropdown-content">
@@ -59,38 +55,6 @@
         <%= link_to 'Record', record_path %></a>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </header>
 
@@ -105,32 +69,15 @@
           </nav>
 
 
-          <aside></aside>
+          <aside>
+
+          </aside>
 
 
         </div>
 
 
-        <footer><br> <%= link_to 'about', users_about_path %></a>| Terms of Use</footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <footer><br> <%= link_to 'About', users_about_path %></a> | Terms of Use</footer>
 
   </body>
 </html>

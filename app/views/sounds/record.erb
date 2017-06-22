@@ -2,6 +2,7 @@
 <button class="btn btn-primary" id="start-recording" onclick="startRecording()">Record</button>
 <button class="btn btn-default" id="stop-recording" onclick="stopRecording()">Stop</button>
 <button class="btn btn-default play" id="play-recording" >Play</button>
+<button class="btn btn-default save" id="save-recording" >Save</button>
 <div class="sound" id="record-audio"></div>
 <script src="//cdn.webrtc-experiment.com/commits.js"></script>
 <script src="//cdn.WebRTC-Experiment.com/MediaStreamRecorder.js"></script>
@@ -23,6 +24,7 @@
     mediaRecorder.stop();
     mediaRecorder.stream.stop();
     $('.start-recording').disabled = false;
+
   };
   var mediaRecorder;
   function onMediaSuccess(stream) {
@@ -31,10 +33,14 @@
     mediaRecorder.mimeType = 'audio/wav';
     mediaRecorder.audioChannels = 1;
     mediaRecorder.ondataavailable = function(blob) {
+      // var saveme = mediaRecorder.save(blob, 'FileName.webm');
+
 
       var recsound = URL.createObjectURL(blob)
+
+
       $("#sound_rec").val(recsound);
-      wavesurfer.load(recsound);
+       wavesurfer.load(recsound);
 
       // $('#record-audio').html("<audio controls=''><source src=" + URL.createObjectURL(blob) + "></source></audio>");
     };
@@ -70,6 +76,15 @@
 
   });
 
+  $(".save").click(function() {
+   mediaRecorder.save();
+
+  });
+
+
+
+
+
 
 
 </script>
@@ -87,8 +102,8 @@
 
 
 
-
-
+<!-- < %= f.text_field :image ,:id=>"sound_rec" %> -->
+  <!-- <= f.cl_tag :sound ,:id=>"sound_rec" %> -->
 
 
 <%= form_for @sound, html: {multipart: true} do |f| %>
@@ -107,7 +122,11 @@
   <%= text_field_tag :tag %>
   <br><br>
 
-  <%= f.text_field :sound ,:id=>"sound_rec" %>
+  <%= f.text_field :sound, :id=>"sound_rec" %>
+
+
+
+
 
 
   <br>

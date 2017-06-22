@@ -29,6 +29,9 @@ class SoundsController < ApplicationController
 
     end
 
+
+
+
     sound.user = @current_user   # associate sound with logged in user
 
     sound.save
@@ -119,13 +122,9 @@ query_length = query.split.length
 
 
 
-
-
-
-
-
   def destroy
-    redirect_to sound_path unless @current_user.id == @sound.user_id || @current_user.is_admin
+    @sound = Sound.find params["id"]
+    redirect_to sound_path unless @current_user.is_admin || @current_user.id == @sound.user_id
     Sound.find(params[:id]).destroy
     flash[:success] = "Sound deleted"
     redirect_to sounds_path
@@ -137,3 +136,6 @@ query_length = query.split.length
     params.require(:sound).permit(:sound, :title, :description, :image)
   end
 end
+
+
+# redirect_to sound_path unless @current_user.id == @sound.user_id || @current_user.is_admin
