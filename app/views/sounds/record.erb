@@ -1,0 +1,117 @@
+<br>
+<button class="btn btn-primary" id="start-recording" onclick="startRecording()">Record</button>
+<button class="btn btn-default" id="stop-recording" onclick="stopRecording()">Stop</button>
+<button class="btn btn-default play" id="play-recording" >Play</button>
+<div class="sound" id="record-audio"></div>
+<script src="//cdn.webrtc-experiment.com/commits.js"></script>
+<script src="//cdn.WebRTC-Experiment.com/MediaStreamRecorder.js"></script>
+<script src="//cdn.WebRTC-Experiment.com/gumadapter.js"></script>
+<script>
+  function captureUserMedia(mediaConstraints, successCallback, errorCallback) {
+    navigator.mediaDevices.getUserMedia(mediaConstraints).then(successCallback).catch(errorCallback);
+  }
+  var mediaConstraints = {
+    audio: true
+  };
+  function startRecording(idx) {
+    $('#start-recording').disabled = true;
+    audiosContainer = document.getElementById('audios-container');
+    captureUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+  };
+  function stopRecording() {
+    $('#stop-recording').disabled = true;
+    mediaRecorder.stop();
+    mediaRecorder.stream.stop();
+    $('.start-recording').disabled = false;
+  };
+  var mediaRecorder;
+  function onMediaSuccess(stream) {
+    mediaRecorder = new MediaStreamRecorder(stream);
+    mediaRecorder.stream = stream;
+    mediaRecorder.mimeType = 'audio/wav';
+    mediaRecorder.audioChannels = 1;
+    mediaRecorder.ondataavailable = function(blob) {
+
+      var recsound = URL.createObjectURL(blob)
+      $("#sound_rec").val(recsound);
+      wavesurfer.load(recsound);
+
+      // $('#record-audio').html("<audio controls=''><source src=" + URL.createObjectURL(blob) + "></source></audio>");
+    };
+    var timeInterval = 360 * 1000;
+    mediaRecorder.start(timeInterval);
+    $('#stop-recording').disabled = false;
+  }
+  function onMediaError(e) {
+    console.error('media error', e);
+  }
+  function bytesToSize(bytes) {
+    var k = 1000;
+    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes === 0) return '0 Bytes';
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(k)), 10);
+    return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
+  }
+  function getTimeLength(milliseconds) {
+    var data = new Date(milliseconds);
+    return data.getUTCHours() + " hours, " + data.getUTCMinutes() + " minutes and " + data.getUTCSeconds() + " second(s)";
+  }
+  window.onbeforeunload = function() {
+    $('#start-recording').disabled = false;
+  };
+
+  $(".sound").click(function() {
+   wavesurfer.playPause()
+
+  });
+  $(".play").click(function() {
+   wavesurfer.playPause()
+
+
+  });
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= form_for @sound, html: {multipart: true} do |f| %>
+
+
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br><br>
+
+  <%= f.label :info %>
+  <%= f.text_field :description %>
+  <br><br>
+
+  <%= label_tag :tag %>
+  <%= text_field_tag :tag %>
+  <br><br>
+
+  <%= f.text_field :sound ,:id=>"sound_rec" %>
+
+
+  <br>
+
+  <%= f.submit 'Create Sound', :class => 'submitbutton' %>
+
+<% end %>

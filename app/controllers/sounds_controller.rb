@@ -98,20 +98,6 @@ class SoundsController < ApplicationController
   @emptyarray = []
 
 
-  # loop through word array
-  # @searchsplit.each do |item|
-
-  # if a match is true
-  # if Sound.where(title: item)
-  # # push that word to an empty array
-  # @emptyarray <<  Sound.where(title: item)
-  # end
-  #
-  # end
-
-  # get each of the search terms in an arry
-
-
 query =  params[:q]
 query_length = query.split.length
 @multisearch = Sound.where([(['title LIKE ?'] * query_length).join(' OR ')] + (query.split.map {|query| "%#{query}%"}))
@@ -120,6 +106,14 @@ query_length = query.split.length
 
   @sounds = Sound.all
   @tags = Tag.all
+
+  end
+
+  def record
+
+  @sound = Sound.new
+
+
 
   end
 
