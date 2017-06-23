@@ -8,53 +8,35 @@ class SoundsController < ApplicationController
 
   def create
 
+    # raise 1
+
     sound = Sound.new sound_params
 
-    if params[:file].present?
-      tag = Tag.find_or_create_by name: params[:tag]
-      # tag = Tag.find_or_create_by name: params[:tag]
-
-
-      # tag = Tag.new name: params[:tag]
-
-
-      # perform upload to cloudinary
+    if params[:recording].present?   # live recorded sound
+      req = Cloudinary::Uploader.upload(params[:recording], :resource_type => :video)
+      sound.image = req['public_id']
+    elsif params[:file].present?  # uploaded sound file
       req = Cloudinary::Uploader.upload(params[:file],:resource_type => :video )
       sound.image = req['public_id']
-
-      if tag.save
-       sound.tags << tag
-     end
-
-
     end
 
-
-
+    tag = Tag.find_or_create_by name: params[:tag]
+    if tag.save
+      sound.tags << tag
+    end
 
     sound.user = @current_user   # associate sound with logged in user
 
     sound.save
 
-    if    sound.save
-          # save was successful, now add cuisine associations
-          tags = Tag.where id: params[:sound][:tag_ids]
-          sound.tags << tags
-          redirect_to sound_path(sound.id)
-        else
-          # render :new
+    if sound.save
+      # save was successful, now add cuisine associations
+      tags = Tag.where id: params[:sound][:tag_ids]
+      sound.tags << tags
+      redirect_to sound_path(sound.id)
+    else
+      # render :new
     end
-
-
-
-
-
-
-
-
-
-
-    # redirect_to sound_path(sound.id)
 
   end
 
@@ -78,13 +60,11 @@ class SoundsController < ApplicationController
   def index
       @sounds = Sound.all
 
-
   end
 
   def search
     # get what the user searched for
   @search =  params[:q]
-
 
   # get what the user searched for and split each word into an array
   @searchsplit = params[:q].split(' ')
@@ -97,9 +77,6 @@ class SoundsController < ApplicationController
 
   # get what the user searched for and match it with the split array
   @titleresult =  Sound.where(title: [@searchsplit])
-
-  @emptyarray = []
-
 
 query =  params[:q]
 query_length = query.split.length
@@ -116,15 +93,15 @@ query_length = query.split.length
 
   @sound = Sound.new
 
-
-
   end
-
-
 
   def destroy
     @sound = Sound.find params["id"]
+
+    # only if admin or owner of sound can you destroy
+
     redirect_to sound_path unless @current_user.is_admin || @current_user.id == @sound.user_id
+
     Sound.find(params[:id]).destroy
     flash[:success] = "Sound deleted"
     redirect_to sounds_path
@@ -136,6 +113,3 @@ query_length = query.split.length
     params.require(:sound).permit(:sound, :title, :description, :image)
   end
 end
-
-
-# redirect_to sound_path unless @current_user.id == @sound.user_id || @current_user.is_admin

@@ -3,14 +3,17 @@
 <% if flash[:error].present? %>
 <p><strong><%= flash[:error] %></strong></p>
 <% end %>
-
+<div id="emaillogin">
 <%= form_tag login_path do %>
 <%= label_tag 'Email' %>
 <%= email_field_tag :email, nil %>
+</div>
 <br>
 
+<div id="passwordlogin">
 <%= label_tag 'Password' %>
 <%= password_field_tag :password, nil %>
+</div>
 <br>
 <%= submit_tag 'Login' %>
 <% end %>

@@ -1,8 +1,6 @@
 
 <%= form_for @sound, html: {multipart: true} do |f| %>
 
-
-
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br><br>
@@ -16,7 +14,7 @@
   <br><br>
 
   <div class="uploadbutton">
-  <%= f.cl_upload :sound %>
+  <%= f.cl_upload :recording %>
   </div>
   <br>
 

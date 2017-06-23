@@ -15,15 +15,14 @@
   <body>
 
 
-
-
-
     <header><h1 class="logo">Sound Slap</h1>
 
-      <!-- search form  -->
+      <!-- hand slap - return to home page thing  -->
+      <a href="/sounds"><img class='hand' src="/assets/slap.ico" alt="" ></a>
 
-      <a href="/sounds"><img class='hand' src="/assets/slap.ico" alt="" onclick="http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/slap2_ywxs2a.wav.play()"></a>
 
+    
+      <!-- search form with magnify icon -->
       <div class="search_form">
       <%= form_tag("/search", method: "get") do %>
         <%= label_tag(:q, "") %>

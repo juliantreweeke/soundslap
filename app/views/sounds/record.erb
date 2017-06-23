@@ -1,3 +1,7 @@
+<!-- Using the Media stream recorder plugin -->
+
+<!-- Get all the buttons to run the code -->
+
 <br>
 <button class="btn btn-primary" id="start-recording" onclick="startRecording()">Record</button>
 <button class="btn btn-default" id="stop-recording" onclick="stopRecording()">Stop</button>
@@ -7,7 +11,13 @@
 <script src="//cdn.webrtc-experiment.com/commits.js"></script>
 <script src="//cdn.WebRTC-Experiment.com/MediaStreamRecorder.js"></script>
 <script src="//cdn.WebRTC-Experiment.com/gumadapter.js"></script>
+
+
+
 <script>
+  // set global var for luke
+  var convertedsound;
+
   function captureUserMedia(mediaConstraints, successCallback, errorCallback) {
     navigator.mediaDevices.getUserMedia(mediaConstraints).then(successCallback).catch(errorCallback);
   }
@@ -35,14 +45,30 @@
     mediaRecorder.ondataavailable = function(blob) {
       // var saveme = mediaRecorder.save(blob, 'FileName.webm');
 
-
       var recsound = URL.createObjectURL(blob)
 
+      // load the blob into the wavesurfer parameters
 
       $("#sound_rec").val(recsound);
        wavesurfer.load(recsound);
 
-      // $('#record-audio').html("<audio controls=''><source src=" + URL.createObjectURL(blob) + "></source></audio>");
+
+      //  code from luke to convert blob
+       var reader = new window.FileReader();
+       reader.readAsDataURL(blob);
+       reader.onloadend = function() {
+         convertedsound =  reader.result;
+         $('#recording').val( convertedsound );
+         debugger;
+       }
+
+      //  $('#hiddenformfieldID').val( convertedsound );
+
+
+
+
+
+
     };
     var timeInterval = 360 * 1000;
     mediaRecorder.start(timeInterval);
@@ -66,13 +92,14 @@
     $('#start-recording').disabled = false;
   };
 
+  // use jquery to control dom
+
   $(".sound").click(function() {
    wavesurfer.playPause()
 
   });
   $(".play").click(function() {
    wavesurfer.playPause()
-
 
   });
 
@@ -92,23 +119,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-<!-- < %= f.text_field :image ,:id=>"sound_rec" %> -->
-  <!-- <= f.cl_tag :sound ,:id=>"sound_rec" %> -->
-
-
 <%= form_for @sound, html: {multipart: true} do |f| %>
-
-
 
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -122,15 +133,16 @@
   <%= text_field_tag :tag %>
   <br><br>
 
-  <%= f.text_field :sound, :id=>"sound_rec" %>
-
-
-
-
-
+  <%= hidden_field_tag :recording %>
 
   <br>
 
   <%= f.submit 'Create Sound', :class => 'submitbutton' %>
 
 <% end %>
+
+
+<!--
+old code
+<= f.label :url %>
+<= f.text_field :sound, :id=>"sound_rec" %> -->

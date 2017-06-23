@@ -67,9 +67,6 @@ body {
     }
 
 
-
-
-
 .menu {
   position: absolute;
   left:80px;
@@ -118,8 +115,6 @@ body {
 }
 
 
-
-
 .mag:hover, .hand:hover, .menu:hover {
   cursor: pointer;
   transform: scale(1.1);
@@ -130,11 +125,6 @@ body {
 
 
 }
-
-
-
-
-
 
 
 .dropbtn {
@@ -310,38 +300,6 @@ body {
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 a {
   text-decoration:none;
   color:black;
@@ -353,25 +311,6 @@ a:hover {
 }
 
 
-/*main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .sound {
   transform: scale(0.9);
   cursor: pointer;
@@ -381,8 +320,6 @@ a:hover {
 .sound:hover {
   transform: scale(1);
 }
-
-
 
 
 /*center the upload button form */
@@ -413,5 +350,15 @@ a:hover {
 .btn:hover {
   background-color: #333;
 	color: #4484CE;
+
+}
+
+.emaillogin {
+  position: absolute;
+  left:200px;
+
+}
+
+.passwordlogin {
 
 }

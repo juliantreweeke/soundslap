@@ -5,7 +5,7 @@ class CreateSounds < ActiveRecord::Migration[5.0]
       t.text :title
       t.text :description
       t.text :image
-      
+
 
       t.timestamps
     end
