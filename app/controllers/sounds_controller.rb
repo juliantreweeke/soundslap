@@ -8,8 +8,6 @@ class SoundsController < ApplicationController
 
   def create
 
-    # raise 1
-
     sound = Sound.new sound_params
 
     if params[:recording].present?   # live recorded sound
@@ -81,8 +79,6 @@ class SoundsController < ApplicationController
 query =  params[:q]
 query_length = query.split.length
 @multisearch = Sound.where([(['title LIKE ?'] * query_length).join(' OR ')] + (query.split.map {|query| "%#{query}%"}))
-
-
 
   @sounds = Sound.all
   @tags = Tag.all

@@ -1,20 +1,24 @@
 <!-- Using the Media stream recorder plugin -->
 
 <!-- Get all the buttons to run the code -->
+<!-- experimenting with bootstrap  -->
 
 <br>
 <button class="btn btn-primary" id="start-recording" onclick="startRecording()">Record</button>
 <button class="btn btn-default" id="stop-recording" onclick="stopRecording()">Stop</button>
 <button class="btn btn-default play" id="play-recording" >Play</button>
 <button class="btn btn-default save" id="save-recording" >Save</button>
+
+<!-- this is the div where wavesurfer will load to -->
 <div class="sound" id="record-audio"></div>
+
+<!-- load mediastream plugin -->
 <script src="//cdn.webrtc-experiment.com/commits.js"></script>
 <script src="//cdn.WebRTC-Experiment.com/MediaStreamRecorder.js"></script>
 <script src="//cdn.WebRTC-Experiment.com/gumadapter.js"></script>
 
-
-
 <script>
+
   // set global var for luke
   var convertedsound;
 
@@ -43,8 +47,8 @@
     mediaRecorder.mimeType = 'audio/wav';
     mediaRecorder.audioChannels = 1;
     mediaRecorder.ondataavailable = function(blob) {
-      // var saveme = mediaRecorder.save(blob, 'FileName.webm');
 
+      // get url of the blog so you can download to computer
       var recsound = URL.createObjectURL(blob)
 
       // load the blob into the wavesurfer parameters
@@ -61,10 +65,6 @@
          $('#recording').val( convertedsound );
          debugger;
        }
-
-      //  $('#hiddenformfieldID').val( convertedsound );
-
-
 
 
 
@@ -105,14 +105,7 @@
 
   $(".save").click(function() {
    mediaRecorder.save();
-
   });
-
-
-
-
-
-
 
 </script>
 
@@ -140,9 +133,3 @@
   <%= f.submit 'Create Sound', :class => 'submitbutton' %>
 
 <% end %>
-
-
-<!--
-old code
-<= f.label :url %>
-<= f.text_field :sound, :id=>"sound_rec" %> -->

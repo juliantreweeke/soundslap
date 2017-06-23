@@ -32,8 +32,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # catches URLS like /users/:id
-    # @user = User.find params["id"]
+
   end
 
   def edit
@@ -44,7 +43,7 @@ class UsersController < ApplicationController
 
   def update
 
-    # redirect_to root_path unless @current_user == @user
+    
 
     @user = @current_user # makes sure user can only edit
 

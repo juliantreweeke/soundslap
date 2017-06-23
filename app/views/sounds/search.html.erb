@@ -1,43 +1,33 @@
 
+ <!-- let user know how many matches found in search -->
 
 <p>You searched for: <%= @search %></p>
 <p><%= @result.length + @multisearch.length %> results.
 
-<!-- if no results say no matches -->
-
-<!-- search for tags -->
+<!-- search for tags in tags table -->
 
 <% @result.uniq.each do |r| %>
 <h3><%= link_to r.title, sound_path(r) %>
   <audio id="<%= r.id%>"> <source src="<%= r.sound%>"> </audio>
+
+    <!-- show speaker icon next to sound to demo it  -->
   <img src="assets/speaker.png" class="speaker" onclick="document.getElementById(<%= r.id%>).play()"></h3>
 <br>
 
-
-
-
-
-
-
-
-
 <% end %>
 
-<!-- uniq -->
-
-
-<!-- search for titles of sounds -->
-<!-- < @titleresult.uniq.each do |r| %> -->
-
-
+<!-- search through sub strings in titles in sounds table -->
 
 <% @multisearch.uniq.each do |r| %>
 <h3><%= link_to r.title, sound_path(r) %>
   <audio id="<%= r.id%>"> <source src="<%= r.sound%>"> </audio>
+    
+  <!-- show speaker icon next to sound to demo it  -->
   <img src="assets/speaker.png" class="speaker" onclick="document.getElementById(<%= r.id%>).play()"></h3>
 
 <br>
 <% end %>
+
 
 
 <div class="sound"></div>
