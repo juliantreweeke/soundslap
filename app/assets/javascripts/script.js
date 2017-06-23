@@ -11,7 +11,7 @@ $(document).ready(function(){
   });
 
  // when hand is clicked do slap sound
-var audio = new Audio("http://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/slap1_zvfjzc.wav") ;
+var audio = new Audio("https://res.cloudinary.com/dsxf8cujo/video/upload/v1497938309/slap1_zvfjzc.wav") ;
 
 $( ".hand" ).click(function() {
   audio.play();
