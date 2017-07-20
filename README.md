@@ -5,10 +5,6 @@ This is my first Ruby on Rails app.
 
 Live link: [Sound Slap](https://soundslap.herokuapp.com/sounds)
 
-![](images/soundslap1.png?raw=true)
-![](images/soundslap2.png?raw=true)
-
-
 ## UPDATE
 The last time I checked this site the MediaStreamRecorder plugin was not working.
 This means that recording in the browser could be disabled.
