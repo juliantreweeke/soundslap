@@ -57,7 +57,7 @@
        wavesurfer.load(recsound);
 
 
-      //  code from luke to convert blob
+      //  code to convert blob to wav
        var reader = new window.FileReader();
        reader.readAsDataURL(blob);
        reader.onloadend = function() {
@@ -106,6 +106,12 @@
   $(".save").click(function() {
    mediaRecorder.save();
   });
+
+  // also something not on heroku
+  $("#start-mic").click(function() {
+   microphone.start();
+  });
+
 
 </script>
 

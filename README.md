@@ -1,24 +1,33 @@
-# README
+#Soundslap.
+##Slap your ear drums with epicness.
+A community driven audio sample sharing website.
+This is my first Ruby on Rails app.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Live at: https://soundslap.herokuapp.com/sounds
 
-Things you may want to cover:
+##Plugins used:
 
-* Ruby version
+Wavesurfer.js
 
-* System dependencies
+I used this plugin to create the wave forms from audio that is recorded or uploaded.
 
-* Configuration
+MediaStreamRecorder.js
 
-* Database creation
+I used this plugin to record audio in the browser.
 
-* Database initialization
+##Bugs:
 
-* How to run the test suite
+After searching for sounds, the speaker icon in the sound list does not play audio.
 
-* Services (job queues, cache servers, search engines, etc.)
+I ran out of time to put Terms of Use.
 
-* Deployment instructions
+##Thanks
 
-* ...
+Big thanks to Luke Hammer and Edgey for helping me get this to work.
+Also massive thanks to the people behind Wavesurfer.js and MediaStreamRecorder.
+
+##Final Thoughts
+Features I wanted to add but didn't have time
+-Live Microphone volume graph.
+-Let users comment on sounds.
+-Terms of Use page added to Creative Commons information.
